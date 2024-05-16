@@ -1,1 +1,2 @@
 Do not run migrations, we will be using a custom user model.
+admin-admin@admin.com-1
