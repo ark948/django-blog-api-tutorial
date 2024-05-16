@@ -14,3 +14,6 @@ to add CORS (protecting the connection from unknown and external clients using h
 2. add it to installed_apps
 3. add it to middlewares, above commonmiddleware
 4. add whitelist var
+
+to add CSRF_PROTECTION for cross-domain requests:
+add CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"] to settings.py
