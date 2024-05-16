@@ -1,2 +1,16 @@
 Do not run migrations, we will be using a custom user model.
 admin-admin@admin.com-1
+
+to add API:
+1. install django rest framework
+2. add it to installed apps
+3. add permission config
+4. add urls
+5. add serializer
+6. add views
+
+to add CORS (protecting the connection from unknown and external clients using headers)
+1. install django-cors-headers
+2. add it to installed_apps
+3. add it to middlewares, above commonmiddleware
+4. add whitelist var
