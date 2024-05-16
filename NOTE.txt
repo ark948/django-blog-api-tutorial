@@ -1,0 +1,1 @@
+Do not run migrations, we will be using a custom user model.
