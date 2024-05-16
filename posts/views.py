@@ -7,6 +7,6 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (permissions.IsAdminUser,) # only admin users can view detail page
+    # permission_classes = (permissions.IsAdminUser,) # only admin users can view detail page
     queryset = Post.objects.all()
     serializer_class = PostSerializer
