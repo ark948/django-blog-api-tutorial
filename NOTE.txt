@@ -17,3 +17,7 @@ to add CORS (protecting the connection from unknown and external clients using h
 
 to add CSRF_PROTECTION for cross-domain requests:
 add CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"] to settings.py
+
+adding permissions:
+permissions can be added in 3 layers: project level, view level and model level
+allowany was an example of project level.
