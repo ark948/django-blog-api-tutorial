@@ -66,3 +66,10 @@ first dj-rest-auth, we will add log in, log out, and password reset api endpoint
 pip install dj-rest-auth==2.1.11 and then add it to installed apps.
 add dj-rest-auth routes to main urls.py
 
+- to add user registration, we will use django-allauth
+pip install django-allauth=0.48.0
+several new config vars must be added to installed apps,
+also django-allauth needs to be added to TEMPLATES config and EMAIL_BACKEND must be updated. (email backend may not exist)
+also SITE_ID must be updated. (sites framework, is django's way of hosting multiple websites in the same project)
+migrate the database.
+add new routes to main urls.py.
