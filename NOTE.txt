@@ -60,3 +60,9 @@ change "rest_framework.authentication.BasePermission to TokenAuthentication
 
 second step: add authtoken app to installed_apps (this app is included in DRF but must be explicitly added)
 third step: since installed_apps has changed, database must be synced. run migrations (only migrate)
+
+we'll be relying on two third party apps for user authentication (dj-rest-auth in combination with django-allauth)
+first dj-rest-auth, we will add log in, log out, and password reset api endpoints.
+pip install dj-rest-auth==2.1.11 and then add it to installed apps.
+add dj-rest-auth routes to main urls.py
+
