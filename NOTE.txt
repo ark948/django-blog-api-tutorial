@@ -23,3 +23,40 @@ permissions can be added in 3 layers: project level, view level and model level
 allowany was an example of project level.
 
 testuser-hello123*
+
+- Adding custom permission:
+add a permissions.py file to api
+create a class that will inherit from permissions.BasePermission (import from rest_framework)
+the methods of this class, must return true or false
+import and add the custom permission to permission_classes of a view (generic, and the value must be tuble)
+
+
+NOTE: it is advised not to use session-based authentication in apis that will have multiple front-ends.
+
+- Adding User Authentication:
+there are three major approaches:
+1. Basic Authentication: sends along authentication credientials in every request via http headers
+2. Session based authentication: credientials are sent once, if valid, a session object is created, 
+the session will be held in database, and a session id will be held in client side (as a cookie).
+note: Django's default choice is a combination of the two above.
+3. Token Authentication: credientials are sent once, a unique token is generated, client will hold it as cookie or localStorage.
+the server will not keep a record of the token, just whether it is valid or not.
+JWT (json web tokens) are newer form of token that we use in this book
+
+first step: is to add new authentication config vars to settings.py
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+            "rest_framework.permissions.IsAuthenticated",
+        ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [ # new
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ],
+}
+
+now, update it to use tokens
+change "rest_framework.authentication.BasePermission to TokenAuthentication
+(means that we will be using tokens instead of sessions)
+
+second step: add authtoken app to installed_apps (this app is included in DRF but must be explicitly added)
+third step: since installed_apps has changed, database must be synced. run migrations (only migrate)
