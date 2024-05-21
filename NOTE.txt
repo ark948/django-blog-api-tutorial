@@ -73,3 +73,20 @@ also django-allauth needs to be added to TEMPLATES config and EMAIL_BACKEND must
 also SITE_ID must be updated. (sites framework, is django's way of hosting multiple websites in the same project)
 migrate the database.
 add new routes to main urls.py.
+
+- viewsets and routers
+a viewset can replace multiple related views
+and a router can automatically generate urls
+we will be making two new api endpoints for listing users and viewing individual users using viewsets and routers
+
+adding api endpoint is always a three step process:
+new serializer
+new view
+new url route
+
+edit serializer.py by importing custom user model and creating a serializer for it
+add two views to views.py in posts
+and then two routes in urls.py in posts
+
+currently there are four views for posts app, two for posts and two for users.
+by using viewsets, we will then have two, one for posts, and one for users.
