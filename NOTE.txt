@@ -102,3 +102,7 @@ also it needs its own config var to be added to settings.py: SPECTACULAR_SETTING
 then we can use a management command to generate a standalone schema file with a given name.
 python manage.py spectacular --file schema.yml.
 (this file is hard to read for humans but very understandable for computers)
+this file can also be dynamically generated in as url in browser itself. (check main urls.py file)
+
+for adding documentation, drf-spectacular supports two tools: Redoc and SwaggerUI
+just import them and add them to main urls.py file.
