@@ -90,3 +90,15 @@ and then two routes in urls.py in posts
 
 currently there are four views for posts app, two for posts and two for users.
 by using viewsets, we will then have two, one for posts, and one for users.
+
+- Adding schema and documentation (automated)
+OpenAPI specification is the best standard way to document api.
+we will use drf-spectacular package to generate an OpenAPI 3 schema.
+
+install: pip install drf-spectacular
+add it to installed apps.
+also it needs to be registered in REST_FRAMEWORK config var.
+also it needs its own config var to be added to settings.py: SPECTACULAR_SETTINGS.
+then we can use a management command to generate a standalone schema file with a given name.
+python manage.py spectacular --file schema.yml.
+(this file is hard to read for humans but very understandable for computers)
