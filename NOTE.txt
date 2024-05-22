@@ -113,4 +113,28 @@ Environment variables are good way to store secure and sensitive information, th
 there are many packages for this purpose but we will use environs package (it has special config for django)
 pip install environs[django]
 set it up in settings.py (requires two conifg vars), just import Env and create an instance of it and make it read env files
-then create an .env file and add it to gitignore
+then create an .env file and add it to gitignore.
+starting by debug var.
+we want debug to be true in development and false in Production. also if for some reason, environment vars failed to load,
+we want to default to false. (to be more secure)
+add debug var to env file.
+set settings.py file to read debug var from .env file.
+next is secret key. we will use python's secrets module to generate one.
+> python -c "import secrets; print(secrets.token_urlsafe())"
+copy it and paste into env file. update settings.py accordingly.
+next is allowed hosts. there should be three, heroku, localhost and 127.0.0.1, but i'll just add the later two (i don't have heroku)
+next is database. local is sqlite, but for production we will want postgresql. environs package included 'dj-database-url'.
+which will help us.
+add dj_db_url to DATABASES var in settings.py, then add it to .env file (sqlite). (heroku takes care of postgresql automatically)
+next is static files.
+create a project level directory called static.
+within staic directory, create an empty .keep file so it gets picked up by git.
+install whitenoise package.
+pip install whitenoise.
+whitenoise needs five config vars.
+one installed_apps (must be above django staic files app),
+one middleware (must be below session),
+one static files dir,
+one static root,
+one static files storage.
+run static command. python manage.py collectstatic
