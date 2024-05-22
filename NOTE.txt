@@ -106,3 +106,11 @@ this file can also be dynamically generated in as url in browser itself. (check 
 
 for adding documentation, drf-spectacular supports two tools: Redoc and SwaggerUI
 just import them and add them to main urls.py file.
+
+- Production Deployment:
+Environment variables are good way to store secure and sensitive information, that should not be sent to source control.
+
+there are many packages for this purpose but we will use environs package (it has special config for django)
+pip install environs[django]
+set it up in settings.py (requires two conifg vars), just import Env and create an instance of it and make it read env files
+then create an .env file and add it to gitignore
