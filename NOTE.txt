@@ -137,4 +137,6 @@ one middleware (must be below session),
 one static files dir,
 one static root,
 one static files storage.
-run static command. python manage.py collectstatic
+run static command. python manage.py collectstatic.
+next is psycopg2 and gunicorn.
+pip install psycopg2.
